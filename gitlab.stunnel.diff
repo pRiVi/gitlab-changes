@@ -1,0 +1,42 @@
+--- ./gem/ruby/1.9.1/gems/omniauth-1.1.4/lib/omniauth/strategy.rb.old	2014-05-07 17:41:09.868265980 +0200
++++ ./gem/ruby/1.9.1/gems/omniauth-1.1.4/lib/omniauth/strategy.rb	2014-05-07 17:54:12.980266162 +0200
+@@ -470,14 +470,9 @@
+     protected
+ 
+     def merge_stack(stack)
+       stack.inject({}){|c,h| c.merge!(h); c}
+     end
+-    def ssl?
+-      request.env['HTTPS'] == 'on' ||
+-      request.env['HTTP_X_FORWARDED_SSL'] == 'on' ||
+-      request.env['HTTP_X_FORWARDED_SCHEME'] == 'https' ||
+-      (request.env['HTTP_X_FORWARDED_PROTO'] && request.env['HTTP_X_FORWARDED_PROTO'].split(',')[0] == 'https') ||
+-      request.env['rack.url_scheme'] == 'https'
++    def ssl? 1
+     end
+   end
+ end
+--- ./gem/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb.old	2014-05-07 17:45:31.524265928 +0200
++++ ./gem/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb	2014-05-07 17:54:41.896263976 +0200
+@@ -66,21 +66,11 @@
+     def content_charset
+       media_type_params['charset']
+     end
+ 
+     def scheme
+-      if @env['HTTPS'] == 'on'
+         'https'
+-      elsif @env['HTTP_X_FORWARDED_SSL'] == 'on'
+-        'https'
+-      elsif @env['HTTP_X_FORWARDED_SCHEME']
+-        @env['HTTP_X_FORWARDED_SCHEME']
+-      elsif @env['HTTP_X_FORWARDED_PROTO']
+-        @env['HTTP_X_FORWARDED_PROTO'].split(',')[0]
+-      else
+-        @env["rack.url_scheme"]
+-      end
+     end
+ 
+     def ssl?
+       scheme == 'https'
+     end
