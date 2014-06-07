@@ -1,3 +1,6 @@
-- Apply the .patch
-- Change "timeout: 30" in /var/opt/gitlab/gitlab-rails/etc/unicorn.rb so the download feature works
-- apt-get install bzip2
+- gitlab.stunnel.patch: Apply the patch if you want to make gitlab accessable via a simple stunnel SSL forwarder
+- gitlab.downloadarchive.patch: Apply the patch if you want to be able to use the download feature (see https://github.com/gitlabhq/gitlabhq/issues/6642)
+- /var/opt/gitlab/gitlab-rails/etc/unicorn.rb: Change "timeout: 30" so long running task can be run
+- /var/opt/gitlab/gitlab-rails/etc/unicorn.rb: Change "worker_processes: 2" at least to the existing cpus number
+- apt-get install bzip2 git gzip zip
+
