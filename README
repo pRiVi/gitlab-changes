@@ -6,7 +6,7 @@
 === Download feature ===
 
 - gitlab.downloadarchive.patch
-  Apply the patch if you want to be able to use the download feature (see https://github.com/gitlabhq/gitlabhq/issues/6642)
+  Apply the patch if you want to be able to use the download feature (see https://github.com/gitlabhq/gitlabhq/issues/6922)
 - /var/opt/gitlab/gitlab-rails/etc/unicorn.rb
    Change "timeout: 30" so long running task can be run
 - /var/opt/gitlab/gitlab-rails/etc/unicorn.rb
