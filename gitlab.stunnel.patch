@@ -1,5 +1,5 @@
---- ./gem/ruby/1.9.1/gems/omniauth-1.1.4/lib/omniauth/strategy.rb.old	2014-05-07 17:41:09.868265980 +0200
-+++ ./gem/ruby/1.9.1/gems/omniauth-1.1.4/lib/omniauth/strategy.rb	2014-05-07 17:54:12.980266162 +0200
+--- ./embedded/service/gem/ruby/1.9.1/gems/omniauth-1.1.4/lib/omniauth/strategy.rb.old	2014-05-07 17:41:09.868265980 +0200
++++ ./embedded/service/gem/ruby/1.9.1/gems/omniauth-1.1.4/lib/omniauth/strategy.rb	2014-05-07 17:54:12.980266162 +0200
 @@ -470,14 +470,9 @@
      protected
  
@@ -16,8 +16,8 @@
      end
    end
  end
---- ./gem/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb.old	2014-05-07 17:45:31.524265928 +0200
-+++ ./gem/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb	2014-05-07 17:54:41.896263976 +0200
+--- ./embedded/service/gem/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb.old	2014-05-07 17:45:31.524265928 +0200
++++ ./embedded/service/gem/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb	2014-05-07 17:54:41.896263976 +0200
 @@ -66,21 +66,11 @@
      def content_charset
        media_type_params['charset']
@@ -40,3 +40,12 @@
      def ssl?
        scheme == 'https'
      end
+--- ./embedded/cookbooks/gitlab/attributes/default.rb     2014-06-07 14:29:51.356766657 +0200
++++ ./embedded/cookbooks/gitlab/attributes/default.rb.org 2014-06-07 14:29:49.332766555 +0200
+@@ -123,5 +123,5 @@
+ default['gitlab']['unicorn']['tcp_nopush'] = true
+ default['gitlab']['unicorn']['backlog_socket'] = 64
+-default['gitlab']['unicorn']['worker_timeout'] = 30000
++default['gitlab']['unicorn']['worker_timeout'] = 30
+
+ ####
