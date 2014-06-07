@@ -40,12 +40,3 @@
      def ssl?
        scheme == 'https'
      end
---- ./embedded/cookbooks/gitlab/attributes/default.rb     2014-06-07 14:29:51.356766657 +0200
-+++ ./embedded/cookbooks/gitlab/attributes/default.rb.org 2014-06-07 14:29:49.332766555 +0200
-@@ -123,5 +123,5 @@
- default['gitlab']['unicorn']['tcp_nopush'] = true
- default['gitlab']['unicorn']['backlog_socket'] = 64
--default['gitlab']['unicorn']['worker_timeout'] = 30000
-+default['gitlab']['unicorn']['worker_timeout'] = 30
-
- ####
