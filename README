@@ -1,0 +1,3 @@
+- Apply the .patch
+- Change "timeout: 30" in /var/opt/gitlab/gitlab-rails/etc/unicorn.rb so the download feature works
+- apt-get install bzip2
