@@ -1,0 +1,17 @@
+--- ./embedded/service/gem/ruby/1.9.1/gems/gitlab-grit-2.6.5/lib/grit/repo.rb.org	2014-06-07 16:17:32.760768149 +0200
++++ ./embedded/service/gem/ruby/1.9.1/gems/gitlab-grit-2.6.5/lib/grit/repo.rb	2014-06-07 16:17:55.312766734 +0200
+@@ -598,13 +598,13 @@
+       git_archive_cmd += %W(-- #{treeish})
+ 
+       open(filename, 'w') do |file|
+         pipe_rd, pipe_wr = IO.pipe
+         git_archive_pid = spawn(*git_archive_cmd, :out => pipe_wr)
++        pipe_wr.close
+         compress_pid = spawn(*compress_cmd, :in => pipe_rd, :out => file)
+         pipe_rd.close
+-        pipe_wr.close
+         Process.waitpid(git_archive_pid)
+         Process.waitpid(compress_pid)
+       end
+     end
+ 
